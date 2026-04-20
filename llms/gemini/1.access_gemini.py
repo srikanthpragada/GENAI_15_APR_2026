@@ -7,7 +7,7 @@ client = genai.Client()
 
 response = client.models.generate_content(
     model="gemini-2.5-flash",
-    contents="List names of 5 important cities in India"
+    contents="What is the capital of Spain?"
 )
 
 print(response.text)
