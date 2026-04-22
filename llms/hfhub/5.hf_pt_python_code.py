@@ -13,9 +13,7 @@ prompt_template = PromptTemplate.from_template(template=template_str)
 prompt = prompt_template.format(
        lang="java",
        text="Check whether a number is perfect number or not")
-
 print(prompt)
-
 
 messages = [{"role": "user", "content": prompt}]
 
