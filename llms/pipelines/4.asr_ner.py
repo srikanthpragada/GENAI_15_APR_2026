@@ -1,20 +1,4 @@
 
-import os
-import warnings
-
-# TensorFlow C++ logs
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
-
-# oneDNN message
-os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
-
-#  Python warnings (including deprecation)
-warnings.filterwarnings("ignore")
-
-import tensorflow as tf
-tf.get_logger().setLevel("ERROR")
-
-
 from transformers import pipeline, logging
 logging.set_verbosity_error()
 

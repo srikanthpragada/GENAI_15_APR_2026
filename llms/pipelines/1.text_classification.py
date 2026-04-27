@@ -1,14 +1,6 @@
 import os
-import warnings
-
-# TensorFlow C++ logs
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
-
-# oneDNN message
-os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
-
-import tensorflow as tf
-tf.get_logger().setLevel("ERROR")
+os.environ["HF_HUB_DISABLE_PROGRESS_BARS"] = "1"
+#os.environ["TQDM_DISABLE"] = "1"
 
 from transformers import pipeline
 
