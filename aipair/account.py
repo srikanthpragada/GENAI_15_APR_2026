@@ -5,7 +5,7 @@ class Account:
     def __init__(self, account_id, customer_name, balance=0):
         self.account_id = account_id
         self.customer_name = customer_name
-        self.balance = balance
+        self.balance = balance  
 
     def deposit(self, amount):
         if amount <= 0:
