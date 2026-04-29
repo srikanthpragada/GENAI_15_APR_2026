@@ -27,8 +27,8 @@ messages = [
     SystemMessage(
         'You can use tools when necessary, but otherwise answer the question using your own knowledge.'
     ),
-   HumanMessage(content="What is the capital of India")
-   #HumanMessage(content="What is the weather in Vizag and its population")
+   #HumanMessage(content="What is the capital of India")
+   HumanMessage(content="What is the weather in Vizag and its population")
 ]
 
 gemini_with_tools = gemini.bind_tools([get_weather, get_population])
