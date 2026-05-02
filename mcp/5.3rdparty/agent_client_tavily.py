@@ -2,6 +2,7 @@
 
 from langchain.agents import create_agent
 from langchain.chat_models import init_chat_model
+from langchain.messages import SystemMessage, HumanMessage
 import asyncio
 from langchain_mcp_adapters.client import MultiServerMCPClient
 import os
@@ -23,10 +24,12 @@ async def process():
 
         print('-' * 50)
         
-        model = init_chat_model("gpt-5-nano", model_provider="openai")
-        #model = init_chat_model("gemini-2.5-flash", model_provider="google_genai")
+        #model = init_chat_model("gpt-5-nano", model_provider="openai")
+        model = init_chat_model("gemini-2.5-flash", model_provider="google_genai")
         agent = create_agent(model, tools)
-        response = await agent.ainvoke({"messages": "Who won IPL 2025? Just give team name."})
+        human_message = HumanMessage("Who won IPL 2025? Just give team name")
+        system_message = SystemMessage("Use tool to search web for information if you do not have information otherwise use your knowledge")
+        response = await agent.ainvoke({"messages": [system_message, human_message] })
 
         for message in response["messages"]:
                 message.pretty_print()

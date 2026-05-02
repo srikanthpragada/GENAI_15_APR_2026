@@ -20,7 +20,10 @@ def read_from_file(directory : str, filename : str) -> str | None:
 
 @mcp.tool()
 def write_to_file(directory: str, filename: str, content : str) -> bool:
-    """Writes the contents to the given file"""
+    """
+    Writes the contents to the given file
+    Returns TRUE on success and FALSE on failure
+    """
     print('write_to_file', directory, filename)
     fullpath = f"{directory}\\{filename}"
     try:
